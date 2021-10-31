@@ -1,60 +1,56 @@
-import time
-from pathlib import Path
-import webbrowser
+# this is a prime generator
+# it generates prime numbers that use the principle of dividing with previous ones
+# it is not super optimized, but needs only 1.5 seconds to generate all prime numbers between 0 and 100000
+# enjoy and use the code for your learning
 
-# the first 2 one prime numbers
+import time
+
+# the first two prime numbers
 startArray = [2, 3]
 
-# the first number for test if prime
-num = 4
+# the first number for testing if prime
+num = 3
 
 
 # function for finding prime numbers
 def getPrimeNumber():
-    # declaring variables as global for future use
-    global startArray
-    global num
-
-    koren = math.sqrt(num)
 
     # divide num with each prime number in startArray
     for prime in startArray:
-        # % function return the rest of division
-        # print(num, koren, prime)
+        # '%' operator returns the remainder of a division
         if num % prime == 0:
             # exit loop because num is not prime
             break
-        if koren <= prime:
-            # print(koren, prime, 'koren')
-            startArray.append(num)
-            break
+    # if loop is never broken, the number is prime
+    else:
+        # append new  prime number to startArray
+        startArray.append(num)
 
-# the timer for testing optimization of program
+
+
 
 # the while loop for finding numbers
 
-
 howMany = int(input('Please enter the number to which you want to calculate prime numbers:\t'))
-start = time.time()  # you can delete if you want
+start = time.time()
 while True:
     getPrimeNumber()
     num += 1
     if num == howMany:
         break
 
-
+# the timer for testing the optimization of the program
 end = time.time()
 timeLapsed = end - start
-toast = ToastNotifier()
+print()
 print(startArray)
-print(timeLapsed)
-toast.show_toast('Prime completed', 'Hey your prime numbers has been calculated in ' + str(timeLapsed) + ' seconds')
+print('\nHey, your prime numbers have been calculated in ' + str(timeLapsed) + ' seconds')
 
 # for saving into .txt file
-saveOrNot = input('Type save to save prime numbers into .txt file:\t')
+saveOrNot = input("Type 'save' to save prime numbers into .txt file:\t")
 if saveOrNot == 'save':
     name = input('Type file name:\t')
     f = open(name + ".txt", "w")
     f.write(str(startArray))
     f.close()
-    toast.show_toast('Saved successfully', 'Your prime numbers has been saved to: ' + name + '.txt')
+    print('\nSaved successfully to: ' + name + '.txt')
