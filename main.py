@@ -1,8 +1,3 @@
-# this is a prime generator
-# it generates prime numbers that use principle of divide with previous ones
-# it is not super optimize but needs only 1,5 seconds to generate all prime numbers between 0 and 100000
-# enjoy and use code for your learning
-from win10toast import ToastNotifier
 import time
 from pathlib import Path
 import webbrowser
@@ -11,7 +6,7 @@ import webbrowser
 startArray = [2, 3]
 
 # the first number for test if prime
-num = 3
+num = 4
 
 
 # function for finding prime numbers
@@ -20,21 +15,24 @@ def getPrimeNumber():
     global startArray
     global num
 
+    koren = math.sqrt(num)
+
     # divide num with each prime number in startArray
     for prime in startArray:
         # % function return the rest of division
+        # print(num, koren, prime)
         if num % prime == 0:
             # exit loop because num is not prime
             break
-    # if loop is never broken number is prime
-    else:
-        # append new  prime number to startArray
-        startArray.append(num)
-
+        if koren <= prime:
+            # print(koren, prime, 'koren')
+            startArray.append(num)
+            break
 
 # the timer for testing optimization of program
 
 # the while loop for finding numbers
+
 
 howMany = int(input('Please enter the number to which you want to calculate prime numbers:\t'))
 start = time.time()  # you can delete if you want
@@ -43,6 +41,7 @@ while True:
     num += 1
     if num == howMany:
         break
+
 
 end = time.time()
 timeLapsed = end - start
