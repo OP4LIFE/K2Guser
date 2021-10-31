@@ -1,9 +1,8 @@
 # this is a prime generator
-# it generate prime numbers that use principle of divide with previous ones
+# it generates prime numbers that use principle of divide with previous ones
 # it is not super optimize but needs only 1,5 seconds to generate all prime numbers between 0 and 100000
 # enjoy and use code for your learning
 from win10toast import ToastNotifier
-
 import time
 from pathlib import Path
 import webbrowser
