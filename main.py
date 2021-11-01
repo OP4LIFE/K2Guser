@@ -54,3 +54,5 @@ if saveOrNot == 'save':
     f.write(str(startArray))
     f.close()
     print('\nSaved successfully to: ' + name + '.txt')
+
+input('Press ENTER to exit.')
