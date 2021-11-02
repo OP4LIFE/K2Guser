@@ -6,10 +6,10 @@
 import time
 
 # the first two prime numbers
-startArray = [2, 3]
+startArray = []
 
 # the first number for testing if prime
-num = 3
+num = 1
 
 
 # function for finding prime numbers
@@ -34,10 +34,11 @@ def getPrimeNumber():
 howMany = int(input('Please enter the number to which you want to calculate prime numbers:\t'))
 start = time.time()
 while True:
-    getPrimeNumber()
-    num += 1
     if num == howMany:
         break
+    num += 1
+    getPrimeNumber()  
+    
 
 # the timer for testing the optimization of the program
 end = time.time()
@@ -54,5 +55,3 @@ if saveOrNot == 'save':
     f.write(str(startArray))
     f.close()
     print('\nSaved successfully to: ' + name + '.txt')
-
-input('Press ENTER to exit.')
