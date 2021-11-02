@@ -5,7 +5,7 @@
 
 import time
 
-# the first two prime numbers
+# a list of found prime numbers
 startArray = []
 
 # the first number for testing if prime
